@@ -1,7 +1,166 @@
-## Найти сумму чисел списка стоящих на нечетной позиции
-## Найти произведение пар чисел в списке. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+## 1.Найти сумму чисел списка стоящих на нечетной позиции
+
+n = 5
+x = 1
+numbers = list(range(0, n))
+
+for i in numbers :
+    x= x*-3
+    print(x)
+
+
+## 2. Найти произведение пар чисел в списке. Парой считаем первый и последний элемент,
+# второй и предпоследний и т.д.
 ## Пример: [2, 3, 4, 5, 6] => [12, 15, 16]; [2, 3, 5, 6] => [12, 15] 
+
+from random import randint
+import math
+
+def pairs_mult(numbers):
+    results = []
+    while len(numbers) > 1:
+        results.append(numbers[0]*numbers[-1])
+        del numbers[0]
+        del numbers[-1]
+    if len(numbers) ==1: results.append(numbers[0]**2)
+    return results
+
+def get_numbers(n, frst, last):
+    return [randint(frst, last) for i in range(n)]
+
+n = 9
+frst = 1
+last = 10
+
+mylist = get_numbers(n, frst, last)
+print(mylist)
+mylist = get_numbers(n, frst, last)
+print(pairs_mult(mylist))
+
+# В заданном списке вещественных чисел найдите разницу между максимальным и минимальным значением дробной части элементов.
+## Пример: [1.1, 1.2, 3.1, 5, 10.01] => 0.19
+
+from random import uniform
+
+def get_real_nums (n, frst, last):
+    return [round(uniform(frst,last), 2) for i in range(n)]
+
+def find_diff(mynums):
+    nums = [round(x - int(x), 2) for x in (mynums)]
+    return max(nums) - min(nums)
+
+n = 5
+frst = 1
+last = 10
+mynums = get_real_nums(n, frst, last)
+
+print (mynums)
+print(find_diff(mynums))
+
+
+# Написать программу преобразования десятичного числа в двоичное
+
+n = int(input('Введите число: '))
+
+def conv_dec_to_bin(n):
+    bin_num = ''
+    while n > 1:
+        bin_num += str(n % 2)
+        n = n // 2
+    return bin_num[::-1]
+
+print(conv_dec_to_bin(n))
+
+
+
+
+
+
+#3. #Для натурального n создать словарь индекс-значение, состоящий из элементов последовательности 3n + 1.
+# # Для n = 6: {1: 4, 2: 7, 3: 10, 4: 13, 5: 16, 6: 19}
+#
+def get_dict(n):
+    return {n: 3 * n + 1 for n in range(1, n+1)}
+
+n = 6
+
+print(n)
+print(get_dict(n))
+
+#4. Пользователь задаёт две строки. Определить количество вхождений одной строки в другой.
+
+from itertools import count
+
+value1 = str(input('Введите данные: '))
+value2 = str(input('Введите данные: '))
+
+def determ_occur(val1, val2):
+    return val2.count(val1)
+
+print(determ_occur(value1, value2))
+#
+# #Подсчитать сумму цифр в вещественном числе.
+#
+from random import uniform
+
+n = round(uniform(1, 100), 3)
+
+def sum_digit(n):
+    return sum(map(int, list(str(n).replace('.',''))))
+
+print(n)
+print(sum_digit(n))
+
+#Написать программу получающую набор произведений чисел от 1 до N.
+# Пример: пусть N = 4, тогда [ 1, 2, 6, 24 ]
+
+def get_factorial_list(n):
+    fact = 1
+    facts = []
+    for i in range(1, n+1):
+        fact *= i
+        facts.append(fact)
+    return facts
+N = 4
+print(get_factorial_list(N))
+
+
+
+
+
+
 ## В заданном списке вещественных чисел найдите разницу между максимальным и минимальным значением дробной части элементов.
 ## Пример: [1.1, 1.2, 3.1, 5, 10.01] => 0.19
+
+from random import uniform
+
+def get_real_nums (n, frst, last):
+    return [round(uniform(frst,last), 2) for i in range(n)]
+
+def find_diff(mynums):
+    nums = [round(x - int(x), 2) for x in (mynums)]
+    return max(nums) - min(nums)
+
+n = 5
+frst = 1
+last = 10
+mynums = get_real_nums(n, frst, last)
+
+print (mynums)
+print(find_diff(mynums))
+
+
 # Написать программу преобразования десятичного числа в двоичное
+
+n = int(input('Введите число: '))
+
+def conv_dec_to_bin(n):
+    bin_num = ''
+    while n > 1:
+        bin_num += str(n % 2)
+        n = n // 2
+    return bin_num[::-1]
+
+print(conv_dec_to_bin(n))
+
 
