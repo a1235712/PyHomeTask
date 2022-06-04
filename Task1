@@ -37,7 +37,7 @@ print(mylist)
 mylist = get_numbers(n, frst, last)
 print(pairs_mult(mylist))
 
-# В заданном списке вещественных чисел найдите разницу между максимальным и минимальным значением дробной части элементов.
+# 3. В заданном списке вещественных чисел найдите разницу между максимальным и минимальным значением дробной части элементов.
 ## Пример: [1.1, 1.2, 3.1, 5, 10.01] => 0.19
 
 from random import uniform
@@ -58,18 +58,18 @@ print (mynums)
 print(find_diff(mynums))
 
 
-# Написать программу преобразования десятичного числа в двоичное
+# 4. Написать программу преобразования десятичного числа в двоичное
 
 n = int(input('Введите число: '))
 
-def conv_dec_to_bin(n):
-    bin_num = ''
+def dec_to_bin(n):
+    bin = ''
     while n > 1:
-        bin_num += str(n % 2)
+        bin += str(n % 2)
         n = n // 2
-    return bin_num[::-1]
+    return bin[::-1]
 
-print(conv_dec_to_bin(n))
+print(dec_to_bin(n))
 
 
 
@@ -159,6 +159,16 @@ def conv_dec_to_bin(n):
     while n > 1:
         bin_num += str(n % 2)
         n = n // 2
+    return bin_num[::-1]
+
+print(conv_dec_to_bin(n))
+
+n = int(input("Введите чмсло:"))
+def conv_dec_to_bin(n):
+    bin_num = ""
+    while n >1:
+        bin_num += str(n%2)
+        n = n//2
     return bin_num[::-1]
 
 print(conv_dec_to_bin(n))
